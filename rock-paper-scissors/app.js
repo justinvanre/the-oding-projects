@@ -1,4 +1,4 @@
-const getRandomNum = range => Math.floor(Math.random * range); 
+const getRandomNum = range => Math.floor(Math.random() * range); 
 
 function getComputerChoice(choice) {
     switch (choice) {
@@ -33,3 +33,9 @@ function playRound() {
     }
 
 }
+
+const playerSelection = 'Rock'; 
+
+const computerSelection = getComputerChoice(getRandomNum(3));
+
+console.log(playRound(playerSelection, computerSelection));
