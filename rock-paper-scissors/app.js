@@ -1,5 +1,21 @@
 const getRandomNum = range => Math.floor(Math.random() * range); 
 
+function getUserChoice() {
+    let choice = prompt('Pick either Rock Paper or Scissors');
+    /*
+        If the choice of the user is NOT either Rock Paper or Scissors
+        rerun the function and ask for user input again.
+    */
+    if (!['Rock', 'Paper', 'Scissors'].includes(choice)) {
+        alert('Please enter either rock paper or scissors');
+        return getUserChoice();
+
+    } else {
+        return choice; 
+        
+    }
+}
+
 function getComputerChoice(choice) {
     switch (choice) {
         case 0: 
@@ -44,7 +60,8 @@ function game(rounds) {
 
     for (let i = 0; i < rounds; i++) 
     {
-        userChoice = prompt('Pick either rock paper or scissors');
+        userChoice = getUserChoice(); 
+
         winnerOfRound = playRound(userChoice, getComputerChoice(getRandomNum(3)));
 
         if (winnerOfRound.includes('tie')) {
@@ -58,7 +75,7 @@ function game(rounds) {
         } else {
             console.log(winnerOfRound);
             scoreCardComputer++;
-            
+
         }
     }
 
