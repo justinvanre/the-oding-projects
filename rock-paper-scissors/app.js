@@ -14,7 +14,7 @@ function getComputerChoice(choice) {
     }
 }
 
-function playRound() {
+function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         return 'The game is a tie.';
@@ -34,8 +34,38 @@ function playRound() {
 
 }
 
-const playerSelection = 'Rock'; 
 
-const computerSelection = getComputerChoice(getRandomNum(3));
+function game(rounds) {
+    let scoreCardUser = 0; 
+    let scoreCardComputer = 0; 
 
-console.log(playRound(playerSelection, computerSelection));
+    let userChoice;
+    let winnerOfRound; 
+
+    for (let i = 0; i < rounds; i++) 
+    {
+        userChoice = prompt('Pick either rock paper or scissors');
+        winnerOfRound = playRound(userChoice, getComputerChoice(getRandomNum(3)));
+
+        if (winnerOfRound.includes('tie')) {
+            console.log(winnerOfRound);
+            continue; 
+
+        } else if (winnerOfRound.includes('You win!')) {
+            console.log(winnerOfRound)
+            scoreCardUser++;
+
+        } else {
+            console.log(winnerOfRound);
+            scoreCardComputer++;
+            
+        }
+    }
+
+    if (scoreCardUser === scoreCardComputer) {
+        return 'The game is a tie.'; 
+    } else {
+        return scoreCardUser > scoreCardComputer ? 'You win the game' : 'You lost the game'
+    }
+}
+
