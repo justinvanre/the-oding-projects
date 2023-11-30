@@ -55,6 +55,9 @@ const btnChoices = document.querySelectorAll('button');
 
 btnChoices.forEach(button => {
     button.addEventListener('click', () => {
-        
+
+        const scoreBoard = document.querySelector('.result');
+
+        scoreBoard.textContent = playRound(button.value, getComputerChoice(getRandomNum(3)));
     });
 })
