@@ -51,38 +51,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-function game(rounds) {
-    let scoreCardUser = 0; 
-    let scoreCardComputer = 0; 
+const btnChoices = document.querySelectorAll('button'); 
 
-    let userChoice;
-    let winnerOfRound; 
-
-    for (let i = 0; i < rounds; i++) 
-    {
-        userChoice = getUserChoice(); 
-
-        winnerOfRound = playRound(userChoice, getComputerChoice(getRandomNum(3)));
-
-        if (winnerOfRound.includes('tie')) {
-            console.log(winnerOfRound);
-            continue; 
-
-        } else if (winnerOfRound.includes('You win!')) {
-            console.log(winnerOfRound)
-            scoreCardUser++;
-
-        } else {
-            console.log(winnerOfRound);
-            scoreCardComputer++;
-
-        }
-    }
-
-    if (scoreCardUser === scoreCardComputer) {
-        return 'The game is a tie.'; 
-    } else {
-        return scoreCardUser > scoreCardComputer ? 'You win the game' : 'You lost the game'
-    }
-}
-
+btnChoices.forEach(button => {
+    button.addEventListener('click', () => {
+        
+    });
+})
