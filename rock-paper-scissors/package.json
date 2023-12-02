@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-sass": "npm install sass",
+    "sass-compile": "sass --watch ./sass/_app.scss:style.css"
   },
   "keywords": [
     "sass"
   ],
   "author": "Justin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.69.5"
+  }
 }
